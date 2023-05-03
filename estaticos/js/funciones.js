@@ -8,8 +8,18 @@ function cambiarColor(codigo){ //codigo --> #fabada
     titulo.innerHTML = codigo;
 }
 
+function hexadecimal(r,g,b){
+    let valores =[r,g,b];
+	return `#${valores.map(n => {
+		n=parseInt(n);
+		return (n<16? "0":"") + n.toString(16);
+	}).join("")}`;
+}
+
 fetch("http://localhost:4000")
-.then(respuesta => respuesta.text())
+.then(respuesta => respuesta.json())
 .then(color => {
     console.log(color);
+    cambiarColor(hexadecimal({r,g,b}));
 });
+

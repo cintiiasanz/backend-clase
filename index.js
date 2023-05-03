@@ -29,7 +29,15 @@ function servirFichero(respuesta,ruta,tipo,status){
 createServer((peticion,respuesta) => {
     if(peticion.url == "/"){
         servirFichero(respuesta,join(__dirname,directorioPublico,"index.html"),contentType("html"),200);
-    };
+    }else{
+        let ruta =  join(__dirname,directorioPublico,peticion.url);
+        stat(ruta,(error,estadisticas) => {
+            if(!error && estadisticas.isFile()){
+                servirFichero(respuesta,ruta,contentType("css"),200);
+            }else{
+                servirFichero(respuesta,join(__dirname,"404.html"),contentType("html"),404);
+            }
+        });
     }
 
 }).listen(3000);
