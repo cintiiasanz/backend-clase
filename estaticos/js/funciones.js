@@ -7,3 +7,9 @@ function cambiarColor(codigo){ //codigo --> #fabada
     titulo.style.textShadow = "2px 2px 0 black"
     titulo.innerHTML = codigo;
 }
+
+fetch("http://localhost:4000")
+.then(respuesta => respuesta.text())
+.then(color => {
+    console.log(color);
+});
