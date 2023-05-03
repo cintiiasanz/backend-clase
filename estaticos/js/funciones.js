@@ -18,8 +18,8 @@ function hexadecimal(r,g,b){
 
 fetch("http://localhost:4000")
 .then(respuesta => respuesta.json())
-.then(color => {
-    console.log(color);
-    cambiarColor(hexadecimal({r,g,b}));
+.then(({r,g,b} )=> {
+    console.log(r,g,b)
+    cambiarColor(hexadecimal(r,g,b));
 });
 
