@@ -33,7 +33,7 @@ createServer((peticion,respuesta) => {
         let ruta =  join(__dirname,directorioPublico,peticion.url);
         stat(ruta,(error,estadisticas) => {
             if(!error && estadisticas.isFile()){
-                servirFichero(respueta,ruta,contentType(ruta.split(",").pop()),200);
+                servirFichero(respuesta,ruta,contentType(ruta.split(",").pop()),200);
             }else{
                 servirFichero(respuesta,join(__dirname,"404.html"),contentType("html"),404);
             }
