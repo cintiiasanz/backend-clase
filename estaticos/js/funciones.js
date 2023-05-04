@@ -16,7 +16,7 @@ function hexadecimal(r,g,b){
 	}).join("")}`;
 }
 
-fetch("http://localhost:4000")
+fetch("https://api-lake-gamma.vercel.app/")
 .then(respuesta => respuesta.json())
 .then(({r,g,b} )=> {
     console.log(r,g,b)
